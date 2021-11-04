@@ -2,9 +2,9 @@
 
 An example Coder workspace with a lot of powerful features.
 
-Open in Sandbox:
+Open in clean.demo.coder.com:
 
-[![Open in Coder](https://cdn.coder.com/embed-button.svg)](https://clean.demo.coder.com/wac/build?project_oauth_service=github&template_oauth_service=github&project_url=git@github.com:bpmct/team-env.git&template_url=https://github.com/mtm20176/applications&template_ref=main&template_filepath=.coder/coder.yaml)
+[![Open in Coder](https://cdn.coder.com/embed-button.svg)](https://clean.demo.coder.com/wac/build?project_oauth_service=github&template_oauth_service=github&project_url=git@github.com:mtm20176/applications.git&template_url=https://github.com/mtm20176/applications&template_ref=main&template_filepath=.coder/coder.yaml)
 
 ![Coder dashboard preview](preview.png)
 
