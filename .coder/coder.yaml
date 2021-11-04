@@ -8,7 +8,7 @@ workspace:
       cpu:
         value: 4
       image:
-        value: bencdr/team-env:latest
+        value: marktmilligan/applications:latest
       container-based-vm: 
         value: true
       memory: 
