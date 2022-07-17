@@ -1,5 +1,5 @@
 apps:
-  - name: Desktop
+  - name: VNC
     scheme: http
     port: 6081
     working-directory: /home/coder
@@ -25,18 +25,6 @@ apps:
       exec:
         command: "pgrep"
         args: ["insomnia"]
-  - name: Portainer
-    scheme: http
-    port: 9000
-    working-directory: /home/coder
-    icon-path: /coder/apps/portainer/icon.png
-    command: bash
-    args: ["/coder/apps/portainer/start.sh"]
-    health-check:
-      http:
-        scheme: "http"
-        path: "/"
-        port: 9000
   - name: code-server
     scheme: http
     port: 8080
@@ -55,28 +43,3 @@ apps:
         scheme: "http"
         path: "/"
         port: 8080
-  - name: Jupyter Lab
-    scheme: http
-    host: "localhost"
-    port: 7031
-    # Working directory
-    working-directory: /home/coder
-    # File path to icon used in application launcher
-    icon-path: /coder/apps/jupyterlab/icon.png
-    # Use the devurl_redirect script to run JupyterLab and access via a subdomain
-    command: /usr/bin/python3
-    # Array of arguments for command
-    args:
-      [
-        "/coder/apps/devurl_redirect.py",
-        "--listen-port=7031",
-        "--start-command",
-        "/usr/local/bin/jupyter lab --ServerApp.allow_remote_access=true --port=8822 --ServerApp.token='' --ServerApp.allow_origin='*' --port-retries=0",
-        "--redirect-port=8822",
-      ]
-    health-check:
-      # check redirect server
-      http:
-        scheme: "http"
-        port: 8822
-        path: "/lab"

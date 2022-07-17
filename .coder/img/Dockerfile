@@ -12,13 +12,13 @@ COPY ["./coder", "/coder"]
 RUN chown -R coder /coder/apps
 
 # Install Insomnia
-RUN wget -O wget -O /tmp/insomnia.deb https://github.com/Kong/insomnia/releases/download/core%402022.1.0/Insomnia.Core-2022.1.0.deb && \
+RUN wget -O wget -O /tmp/insomnia.deb https://github.com/Kong/insomnia/releases/download/core%402022.4.2/Insomnia.Core-2022.4.2.deb && \
     dpkg -i /tmp/insomnia.deb && \
     rm /tmp/insomnia.deb
 
 
 # Install code-server
-ARG VERSION=4.0.1
+ARG VERSION=4.3.0
 ARG ARCH=amd64
 RUN curl -L "https://github.com/coder/code-server/releases/download/v$VERSION/code-server_${VERSION}_$ARCH.deb" -o \
     "/tmp/code-server_${VERSION}_$ARCH.deb" && \
@@ -27,11 +27,5 @@ RUN curl -L "https://github.com/coder/code-server/releases/download/v$VERSION/co
 
 # Install xdotool (for desktop apps)
 RUN sudo apt-get install -y xdotool
-
-# Install JupyterLab
-RUN pip3 install jupyter-core==4.9.2 && \
-    pip3 install jupyterlab && \
-    pip3 install pandas && \
-    pip3 install numpy
 
 USER coder
